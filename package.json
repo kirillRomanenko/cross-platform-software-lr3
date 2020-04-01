@@ -1,0 +1,22 @@
+{
+  "name": "cross-platform-software-lr3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kirillRomanenko/cross-platform-software-lr3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kirillRomanenko/cross-platform-software-lr3/issues"
+  },
+  "homepage": "https://github.com/kirillRomanenko/cross-platform-software-lr3#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
