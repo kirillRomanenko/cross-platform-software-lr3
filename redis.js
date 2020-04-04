@@ -41,21 +41,25 @@ function setPolindrom(polindrom) {
 function getCountWords() {
     const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("countWords").then(function (result) {
-        console.log(result);
+        console.log('Количество слов: ', result);
         redis.quit();
     });
 }
-function getSourceText() {
+async function getSourceText() {
     const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("sourceText").then(function (result) {
-        console.log(result);
+        let sourceText = [];
+        sourceText = JSON.parse(result);
+        console.log(sourceText);
         redis.quit();
     });
 }
 function getPolindrom() {
     const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("polindrom").then(function (result) {
-        console.log(result);
+        let polindromText = [];
+        polindromText = JSON.parse(result);
+        console.log(polindromText);
         redis.quit();
     });
 }
