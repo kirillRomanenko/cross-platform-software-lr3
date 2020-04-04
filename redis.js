@@ -1,6 +1,7 @@
 const Redis = require("ioredis");
-const redis = new Redis(); // uses defaults unless given configuration object
+// const redis = new Redis(); // uses defaults unless given configuration object
 function setCountWords(count) {
+    const redis = new Redis(); // uses defaults unless given configuration object
     // redis.multi({ pipeline: false });
     redis.pipeline()
         .set("countWords", count)
@@ -13,6 +14,7 @@ function setCountWords(count) {
         });
 }
 function setSourceText(sourceText) {
+    const redis = new Redis(); // uses defaults unless given configuration object
     redis.pipeline()
         .set("sourceText", sourceText)
         .exec(function (err, result) {
@@ -24,6 +26,7 @@ function setSourceText(sourceText) {
         });
 }
 function setPolindrom(polindrom) {
+    const redis = new Redis(); // uses defaults unless given configuration object
     redis.pipeline()
         .set("polindrom", polindrom)
         .exec(function (err, result) {
@@ -36,21 +39,24 @@ function setPolindrom(polindrom) {
 }
 
 function getCountWords() {
+    const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("countWords").then(function (result) {
         console.log(result);
         redis.quit();
     });
 }
 function getSourceText() {
+    const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("sourceText").then(function (result) {
         console.log(result);
         redis.quit();
     });
 }
 function getPolindrom() {
+    const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("polindrom").then(function (result) {
         console.log(result);
         redis.quit();
     });
 }
-module.exports = { redis, setCountWords, setSourceText, setPolindrom, getCountWords, getSourceText, getPolindrom };
+module.exports = { setCountWords, setSourceText, setPolindrom, getCountWords, getSourceText, getPolindrom };
