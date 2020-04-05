@@ -2,10 +2,6 @@ const readlineSync = require('readline-sync');
 const request = require('./redis');
 const functions = require('./functions');
 
-// const menu = readlineSync.question('Выбор варианта:\n 1-Генерация текста и поиск слов палиндромов\n 2-Показать исходный текст\n 3-Показать палиндромы\n');
-// let countStrings;
-// let text = [];
-// let polindrom = [];
 while (true) {
     const menu = readlineSync.question('\nВыбор варианта:\n 1-Генерация текста и поиск слов палиндромов\n 2-Показать количество слов\n 3-Показать исходный текст\n 4-Показать палиндромы\n');
     let countStrings;

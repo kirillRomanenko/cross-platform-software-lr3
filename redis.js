@@ -2,7 +2,6 @@ const Redis = require("ioredis");
 // const redis = new Redis(); // uses defaults unless given configuration object
 function setCountWords(count) {
     const redis = new Redis(); // uses defaults unless given configuration object
-    // redis.multi({ pipeline: false });
     redis.pipeline()
         .set("countWords", count)
         .exec(function (err, result) {
@@ -41,7 +40,12 @@ function setPolindrom(polindrom) {
 function getCountWords() {
     const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("countWords").then(function (result) {
-        console.log('Количество слов: ', result);
+        if (result != null) {
+            console.log('Количество слов: ', result);
+        } else {
+            console.log('слова отсутствуют!');
+        }
+
         redis.quit();
     });
 }
@@ -50,7 +54,12 @@ async function getSourceText() {
     redis.get("sourceText").then(function (result) {
         let sourceText = [];
         sourceText = JSON.parse(result);
-        console.log(sourceText);
+        if (sourceText != null) {
+            console.log(sourceText);
+        } else {
+            console.log('исходный текст отсутствует!');
+        }
+
         redis.quit();
     });
 }
@@ -59,7 +68,12 @@ function getPolindrom() {
     redis.get("polindrom").then(function (result) {
         let polindromText = [];
         polindromText = JSON.parse(result);
-        console.log(polindromText);
+        if (polindromText != null) {
+            console.log('слова палиндромы: ', polindromText);
+        } else {
+            console.log('слова палиндромы отсутствуют!');
+        }
+
         redis.quit();
     });
 }
