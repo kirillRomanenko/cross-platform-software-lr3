@@ -49,7 +49,7 @@ function getCountWords() {
         redis.quit();
     });
 }
-async function getSourceText() {
+function getSourceText() {
     const redis = new Redis(); // uses defaults unless given configuration object
     redis.get("sourceText").then(function (result) {
         let sourceText = [];
