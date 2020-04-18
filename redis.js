@@ -68,11 +68,7 @@ function getPolindrom() {
     redis.get("polindrom").then(function (result) {
         let polindromText = [];
         polindromText = JSON.parse(result);
-        if (polindromText != null) {
-            console.log('слова палиндромы: ', polindromText);
-        } else {
-            console.log('слова палиндромы отсутствуют!');
-        }
+        console.log('слова палиндромы: ', polindromText);
 
         redis.quit();
     });
